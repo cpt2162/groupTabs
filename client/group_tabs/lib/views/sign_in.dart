@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:group_tabs/views/tabs/tab_list.dart';
+import 'package:group_tabs/main.dart';
+import 'package:group_tabs/views/tabs/tab_list_page.dart';
 
 class SignIn extends StatelessWidget {
   const SignIn({super.key});
@@ -15,52 +16,53 @@ class SignIn extends StatelessWidget {
         child: Container(
           alignment: Alignment.center,
           child: SizedBox(
-            child: Stack(
-              children: [
-                Container(
-                    width: 300,
-                    height: 400,
-                    alignment: Alignment.center,
-                    child: Column(
-                      children: [
-                        const Text('Sign In'),
-                        const TextField(
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: 'Username',
-                          ),
-                        ),
-                        const TextField(
-                          obscureText: true,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: 'Password',
-                          ),
-                        ),
-                        ElevatedButton(
-                          child: const Text('Sign In'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (_) => const TabList()));
-                          },
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            TextButton(
-                                onPressed: () => print('pressed'),
-                                child: Text('Forgot Password')),
-                            TextButton(
-                                onPressed: () => print('pressed'),
-                                child: Text('Sign Up'))
-                          ],
-                        )
-                      ],
-                    ))
-              ],
-            ),
+            child: Container(
+                width: 300,
+                height: 250,
+                alignment: Alignment.center,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text('Sign In'),
+                    const TextField(
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Username',
+                      ),
+                    ),
+                    const TextField(
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Password',
+                      ),
+                    ),
+                    ElevatedButton(
+                      child: const Text('Sign In'),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => const TabListPage()));
+                      },
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 20.0),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          TextButton(
+                              onPressed: () => print('pressed'),
+                              child: Text('Forgot Password')),
+                          TextButton(
+                              onPressed: () => print('pressed'),
+                              child: Text('Sign Up'))
+                        ],
+                      ),
+                    )
+                  ],
+                )),
           ),
         ),
       ),
