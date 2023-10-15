@@ -8,46 +8,58 @@ class TabTypeToggle extends StatefulWidget {
 }
 
 class _TabTypeToggleState extends State<TabTypeToggle> {
-  Color selectedColor = Colors.lightGreenAccent;
-  Color defaultColor = Colors.black;
+  ButtonStyle defaultstyle =
+      const ButtonStyle(backgroundColor: MaterialStatePropertyAll(null));
   int selected = 0;
-  Color all = Colors.black;
-  Color open = Colors.black;
-  Color closed = Colors.black;
+  ButtonStyle selectedstyle = const ButtonStyle(
+      backgroundColor: MaterialStatePropertyAll(Colors.lightGreenAccent));
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Container(
+      child: Align(
         alignment: Alignment.center,
-        width: 200,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            GestureDetector(
-              onTap: () {
-                all = selectedColor;
-                open = defaultColor;
-                closed = defaultColor;
-              },
-              child: Text("All", style: TextStyle(color: all)),
-            ),
-            GestureDetector(
-                onTap: () {
-                  open = selectedColor;
-                  all = defaultColor;
-                  closed = defaultColor;
+        child: Container(
+          alignment: Alignment.center,
+          width: 200,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              TextButton(
+                style: (selected == 0) ? selectedstyle : defaultstyle,
+                onPressed: () {
+                  setState(() {
+                    selected = 0;
+                  });
                 },
-                child: Text("Open", style: TextStyle(color: open))),
-            GestureDetector(
-                onTap: () {
-                  closed = selectedColor;
-                  open = defaultColor;
-                  closed = defaultColor;
-                },
-                child: Text("Closed", style: TextStyle(color: closed)))
-          ],
+                child: const Text(
+                  "All",
+                  style: TextStyle(color: Colors.black),
+                ),
+              ),
+              TextButton(
+                  style: (selected == 1) ? selectedstyle : defaultstyle,
+                  onPressed: () {
+                    setState(() {
+                      selected = 1;
+                    });
+                  },
+                  child: const Text("Open",
+                      style: TextStyle(color: Colors.black))),
+              TextButton(
+                  style: (selected == 2) ? selectedstyle : defaultstyle,
+                  onPressed: () {
+                    setState(() {
+                      selected = 2;
+                    });
+                  },
+                  child: const Text(
+                    "Closed",
+                    style: TextStyle(color: Colors.black),
+                  ))
+            ],
+          ),
         ),
       ),
     );
