@@ -3,19 +3,16 @@ import 'package:group_tabs/views/new_tab/title_page.dart';
 import 'package:group_tabs/views/tabs/tab_list_page.dart';
 
 class BottomNavBar extends StatefulWidget {
-  const BottomNavBar({super.key});
+  const BottomNavBar(this.selectedPage, {super.key});
+
+  final int selectedPage;
 
   @override
   State<BottomNavBar> createState() => _BottomNavBarState();
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
-  int _selectedPage = 0;
-
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedPage = index;
-    });
     if (index == 0) {
       Navigator.push(
           context,
@@ -55,7 +52,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         ),
       ],
       selectedItemColor: Colors.lightGreenAccent,
-      currentIndex: _selectedPage,
+      currentIndex: widget.selectedPage,
       onTap: _onItemTapped,
     );
   }

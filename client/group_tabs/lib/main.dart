@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:group_tabs/views/sign_in.dart';
-import 'package:group_tabs/views/tabs/tab_list_page.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {

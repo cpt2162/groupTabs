@@ -29,7 +29,7 @@ class _TabListPageState extends State<TabListPage> {
           Padding(padding: EdgeInsets.symmetric(vertical: 8)),
           TabsList(),
         ])),
-        bottomNavigationBar: BottomNavBar(key: GlobalKey()),
+        bottomNavigationBar: BottomNavBar(0, key: GlobalKey()),
       ),
     );
   }
