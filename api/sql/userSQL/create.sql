@@ -1,5 +1,5 @@
 WITH new_user AS (
-    INSERT INTO User (username, password) VALUES (
+    INSERT INTO Users (username, password) VALUES (
         $1,
         $2
     ) RETURNING id

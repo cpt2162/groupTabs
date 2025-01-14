@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS Users CASCADE;
+
+CREATE TABLE Users (
+    id SERIAL PRIMARY KEY,
+    username TEXT NOT NULL,
+    password TEXT NOT NULL
+);

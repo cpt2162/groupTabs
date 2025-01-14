@@ -3,11 +3,14 @@ const morgan = require('morgan');
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const userRouter = require('./routes/userRouter');
 
 app.use(cors());
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use('/user', userRouter);
 
 app.use((req, res, next) => {
     const error = new Error('Not found');

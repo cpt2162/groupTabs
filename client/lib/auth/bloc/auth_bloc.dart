@@ -33,10 +33,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           case AuthStatus.unauthenticated:
             return emit(const AuthState.unauthenticated());
           case AuthStatus.authenticated:
+            final sessionKey = await _authRepo.getSessionKey();
             final user = await _tryGetUser();
             return emit(
               user != null
-                  ? AuthState.authenticated(user)
+                  ? AuthState.authenticated(user, sessionKey)
                   : const AuthState.unauthenticated(),
             );
           case AuthStatus.unknown:

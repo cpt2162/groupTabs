@@ -7,7 +7,7 @@ DECLARE
     v_user_id INTEGER;
 BEGIN
     SELECT id INTO v_user_id
-    FROM User
+    FROM Users
     WHERE username = p_username
     AND password = p_password;
 

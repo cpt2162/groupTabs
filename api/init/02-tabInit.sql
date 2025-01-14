@@ -6,5 +6,5 @@ CREATE TABLE GroupTab (
     description TEXT NOT NULL,
     leader_id INTEGER NOT NULL,
     open BOOLEAN NOT NULL DEFAULT TRUE,
-    FOREIGN KEY (leader_id) REFERENCES User (id)
+    FOREIGN KEY (leader_id) REFERENCES Users (id)
 );

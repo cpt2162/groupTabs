@@ -7,5 +7,5 @@ CREATE TABLE UserData (
     email VARCHAR(255),
     phone VARCHAR(255) NOT NULL,
     user_id INTEGER NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES User (id)
+    FOREIGN KEY (user_id) REFERENCES Users (id)
 );

@@ -7,7 +7,7 @@ CREATE TABLE DirectTab (
     user_one_id INTEGER NOT NULL,
     user_two_id INTEGER NOT NULL,
     group_tab_id INTEGER NOT NULL,
-    FOREIGN KEY (user_one_id) REFERENCES User (id),
-    FOREIGN KEY (user_two_id) REFERENCES User (id),
+    FOREIGN KEY (user_one_id) REFERENCES Users (id),
+    FOREIGN KEY (user_two_id) REFERENCES Users (id),
     FOREIGN KEY (group_tab_id) REFERENCES GroupTab (id)
 );

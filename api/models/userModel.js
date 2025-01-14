@@ -1,4 +1,4 @@
-const db = require('../config/db.config.js');
+const db = require('../db');
 const crypto = require('crypto');
 const { QueryFile } = require('pg-promise');
 const path = require('path');
@@ -26,3 +26,8 @@ async function signIn(user) {
 async function hashPW(pw) {
     return crypto.createHash('sha512').update(pw).digest('hex');
 }
+
+module.exports = {
+    createUser,
+    signIn
+};
